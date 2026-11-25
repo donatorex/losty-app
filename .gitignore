@@ -1,0 +1,52 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# expo / react native
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+expo-env.d.ts
+
+# native projects (generated via CNG)
+ios/
+android/
+
+# env and signing material
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.mobileprovision
+*.keystore
+*.jks
+
+# tests / build artifacts
+coverage/
+*.log
+*.log.*
+
+# macOS
+.DS_Store
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- local harness (never published) ---
+.opencode/
+AGENTS.md
+opencode.json
+opencode.jsonc
+specs/
+docs/
+HANDOFF.md
+THIRD_PARTY_NOTICES.md
+design_dev/
+scripts/preview/
+app/(prototypes)/
+src/components/dev/
