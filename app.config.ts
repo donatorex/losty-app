@@ -9,7 +9,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   icon: './assets/images/icon.png',
   scheme: 'losty',
   userInterfaceStyle: 'light',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#FBFAF7',
   platforms: ['ios'],
   ios: {
     supportsTablet: false,
@@ -23,9 +23,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-splash-screen',
       {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#FBFAF7',
         image: './assets/images/splash-icon.png',
-        imageWidth: 76,
+        imageWidth: 180,
       },
     ],
     'expo-dev-client',

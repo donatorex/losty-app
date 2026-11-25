@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   title: {
-    ...typography.title,
+    ...typography.title1,
     color: colors.text,
     textAlign: 'center',
   },
   subtitle: {
-    ...typography.body,
+    ...typography.subhead,
     color: colors.textMuted,
     textAlign: 'center',
   },
