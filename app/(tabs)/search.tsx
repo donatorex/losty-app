@@ -4,7 +4,7 @@ import { Screen } from '@/components/ui/screen';
 export default function SearchScreen() {
   return (
     <Screen>
-      <PlaceholderScreen title="Поиск" subtitle="Поиск потерянных животных и вещей" />
+      <PlaceholderScreen title="Поиск" subtitle="Поиск потерянных и найденных животных" />
     </Screen>
   );
 }
