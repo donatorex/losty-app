@@ -1,12 +1,12 @@
 export const colors = {
-  background: "#FFFFFF",
-  surface: "#F2F2F7",
-  text: "#111111",
-  textMuted: "#6B7280",
-  border: "#E5E7EB",
-  tabActive: "#111111",
-  tabInactive: "#9CA3AF",
-  overlay: "#FFFFFF",
+  background: '#FFFFFF',
+  surface: '#F2F2F7',
+  text: '#111111',
+  textMuted: '#6B7280',
+  border: '#E5E7EB',
+  tabActive: '#111111',
+  tabInactive: '#9CA3AF',
+  overlay: '#FFFFFF',
 } as const;
 
 export const spacing = {
@@ -28,11 +28,11 @@ export const typography = {
   title: {
     fontSize: 28,
     lineHeight: 34,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   body: {
     fontSize: 15,
     lineHeight: 22,
-    fontWeight: "400",
+    fontWeight: '400',
   },
 } as const;

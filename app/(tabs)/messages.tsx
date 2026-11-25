@@ -1,5 +1,5 @@
-import { PlaceholderScreen } from "@/components/ui/placeholder-screen";
-import { Screen } from "@/components/ui/screen";
+import { PlaceholderScreen } from '@/components/ui/placeholder-screen';
+import { Screen } from '@/components/ui/screen';
 
 export default function MessagesScreen() {
   return (

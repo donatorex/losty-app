@@ -1,9 +1,9 @@
-import { SymbolView } from "expo-symbols";
-import { Tabs } from "expo-router/js-tabs";
-import type { BottomTabBarButtonProps } from "expo-router/js-tabs";
-import { Pressable, StyleSheet } from "react-native";
+import { SymbolView } from 'expo-symbols';
+import { Tabs } from 'expo-router/js-tabs';
+import type { BottomTabBarButtonProps } from 'expo-router/js-tabs';
+import { Pressable, StyleSheet } from 'react-native';
 
-import { colors, radii } from "@/theme/tokens";
+import { colors, radii } from '@/theme/tokens';
 
 function CreateTabButton({ onPress, accessibilityState }: BottomTabBarButtonProps) {
   return (
@@ -31,14 +31,14 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Карта",
+          title: 'Карта',
           tabBarIcon: ({ color, size }) => <SymbolView name="map" tintColor={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="search"
         options={{
-          title: "Поиск",
+          title: 'Поиск',
           tabBarIcon: ({ color, size }) => (
             <SymbolView name="magnifyingglass" tintColor={color} size={size} />
           ),
@@ -47,14 +47,14 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="create"
         options={{
-          title: "Создать",
+          title: 'Создать',
           tabBarButton: (props) => <CreateTabButton {...props} />,
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
-          title: "Директ",
+          title: 'Директ',
           tabBarIcon: ({ color, size }) => (
             <SymbolView name="bubble.left.and.bubble.right" tintColor={color} size={size} />
           ),
@@ -63,7 +63,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Профиль",
+          title: 'Профиль',
           tabBarIcon: ({ color, size }) => (
             <SymbolView name="person.crop.circle" tintColor={color} size={size} />
           ),
@@ -75,9 +75,9 @@ export default function TabsLayout() {
 
 const styles = StyleSheet.create({
   createButton: {
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: 52,
     height: 52,
     marginTop: -12,
