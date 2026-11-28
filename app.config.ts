@@ -13,7 +13,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   platforms: ['ios'],
   ios: {
     supportsTablet: false,
-    bundleIdentifier: 'com.anonymous.losty',
+    bundleIdentifier: 'com.donatorex.losty',
     infoPlist: {
       CADisableMinimumFrameDurationOnPhone: true,
     },
@@ -29,6 +29,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       },
     ],
     'expo-dev-client',
+    '@maplibre/maplibre-react-native',
   ],
   experiments: {
     typedRoutes: true,
