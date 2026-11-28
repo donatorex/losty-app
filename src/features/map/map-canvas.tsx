@@ -1,6 +1,7 @@
 import { Camera, Map } from '@maplibre/maplibre-react-native';
-import type { ViewStateChangeEvent } from '@maplibre/maplibre-react-native';
+import type { CameraRef, ViewState, ViewStateChangeEvent } from '@maplibre/maplibre-react-native';
 import { useCallback, useState } from 'react';
+import type { ReactNode, Ref } from 'react';
 import type { NativeSyntheticEvent } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -16,18 +17,32 @@ import { colors, spacing, typography } from '@/theme/tokens';
 type Status = 'loading' | 'ready' | 'error';
 
 type MapCanvasProps = {
+  children?: ReactNode;
+  cameraRef?: Ref<CameraRef>;
   onFrame?: () => void;
-  onRegionChange?: (zoom: number) => void;
+  onInteractionChange?: (active: boolean) => void;
+  onViewStateChange?: (state: ViewState) => void;
 };
 
-export function MapCanvas({ onFrame, onRegionChange }: MapCanvasProps) {
+export function MapCanvas({
+  children,
+  cameraRef,
+  onFrame,
+  onInteractionChange,
+  onViewStateChange,
+}: MapCanvasProps) {
   const [status, setStatus] = useState<Status>('loading');
+
+  const handleRegionWillChange = useCallback(() => {
+    onInteractionChange?.(true);
+  }, [onInteractionChange]);
 
   const handleRegionChange = useCallback(
     (event: NativeSyntheticEvent<ViewStateChangeEvent>) => {
-      onRegionChange?.(event.nativeEvent.zoom);
+      onViewStateChange?.(event.nativeEvent);
+      onInteractionChange?.(false);
     },
-    [onRegionChange],
+    [onInteractionChange, onViewStateChange],
   );
 
   if (!hasMapTilerKey()) {
@@ -55,14 +70,17 @@ export function MapCanvas({ onFrame, onRegionChange }: MapCanvasProps) {
         onDidFinishLoadingMap={() => setStatus('ready')}
         onDidFailLoadingMap={() => setStatus('error')}
         onDidFinishRenderingFrame={onFrame}
+        onRegionWillChange={handleRegionWillChange}
         onRegionDidChange={handleRegionChange}
       >
         <Camera
+          ref={cameraRef}
           initialViewState={{ center: ALMATY_CENTER, zoom: ALMATY_ZOOM }}
           maxBounds={ALMATY_MAX_BOUNDS}
           minZoom={9}
           maxZoom={18}
         />
+        {children}
       </Map>
 
       {status === 'loading' ? (
